@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button color=dark defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Suchen nach IBeacons in der Nähe</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-item>
+    <ion-label>UUID: </ion-label>
+    <ion-input value={{beaconUuid}}></ion-input>
+    <ion-button style="width: 20%;" (click)="onStartClicked()">Scan</ion-button>
+  </ion-item>
+
+  <h2 *ngIf="!beaconFound">Scanning for beacons... </h2>
+  <h2 *ngIf="beaconFound">Beacons detected: </h2>
+
+  <ion-card>
+    <ion-card-content>
+      <ion-item>
+        <ion-label>uuid: {{beaconData.uuid}}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>accuracy: {{beaconData.accuracy}}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>major: {{beaconData.major}}</ion-label>
+        <ion-label>minor: {{beaconData.minor}}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>rssi: {{beaconData.rssi}}</ion-label>
+        <ion-label>tx: {{beaconData.tx}}</ion-label>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

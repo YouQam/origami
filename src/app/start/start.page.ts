@@ -77,6 +77,10 @@ export class StartPage implements OnInit {
     this.navCtrl.navigateForward('analyze')
   }
 
+  navigateDetectIBeaconPage() {
+    this.navCtrl.navigateForward('detect-beacon')
+  }
+
   async setLanguage(e) {
     this._translate.use(e.target.dataset.value);
     this._initialiseTranslation()
